@@ -57,6 +57,9 @@ lib/
  │         │    └── theme_cubit.dart
  │         └── home_page.dart
  └── main.dart
+tests
+ └── domain/usecases/
+       └── task_test.dart
  ```
 
 ## Librería utilizadas
@@ -64,6 +67,7 @@ Se seleccionaron las siguientes librerías para garantizar un desarrollo robusto
 1. [`flutter_bloc`](https://pub.dev/packages/flutter_bloc): Utilizado para la gestión de estados (Cubit). Permite una separación estricta entre la lógica de negocio y la interfaz de usuario.
 2. [`http`](https://pub.dev/packages/http): Cliente para realizar las peticiones a la API de [JSONPlaceholder](https://jsonplaceholder.typicode.com/todos).
 3. [`shared_preferences`](https://pub.dev/packages/shared_preferences): Implementado para la persistencia local de tareas, permitiendo que la aplicación funcione en modo offline.
+4. [`mockito`](https://pub.dev/packages/mockito): Utilizado para poder mockear dependencias y hacer tests.
 
 ## Decisiones técnicas tomadas
 
