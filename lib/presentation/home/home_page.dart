@@ -7,8 +7,27 @@ import 'package:pt_todo_app/presentation/home/bloc/home_cubit.dart';
 import 'package:pt_todo_app/presentation/home/bloc/home_state.dart';
 import 'package:pt_todo_app/presentation/home/bloc/theme_cubit.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late TextEditingController textController;
+
+  @override
+  void initState() {
+    super.initState();
+    textController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +93,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _showAddDialog(context),
+        onPressed: () => _showAddDialog(context, textController),
         child: const Icon(Icons.add),
       ),
     );
@@ -131,8 +150,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void _showAddDialog(BuildContext context) {
-    final controller = TextEditingController();
+  void _showAddDialog(BuildContext context, TextEditingController controller) {
     final formKey = GlobalKey<FormState>();
 
     showDialog(
